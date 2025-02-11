@@ -27,7 +27,6 @@ def main():
     HAWC2.run('htc/TCPExample.htc', N_iters, amp=0.02)
 
 
-
 def update(array1, amp=0.02):
     '''This function is integrated into a HAWC2 simulation. It is called each
     time step. It receives a numpy array of the HAWC2 outputs as the first
