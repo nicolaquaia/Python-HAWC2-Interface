@@ -15,8 +15,8 @@ import click
 
 
 class HAWC2Interface(object):
-    #def __init__(self, hawc2_command, update_func, modeldir='./', port=1239):          # original
-    def __init__(self, hawc2_command, update_func, modeldir='./', port=9000):
+    #def __init__(self, hawc2_command, update_func, modeldir='./', port=1239):      # original
+    def __init__(self, hawc2_command, update_func, modeldir='./', port=9000):       # first listening on Nicola
         self.hawc2_command = hawc2_command
         self.update_func   = update_func
         self.modeldir      = modeldir
@@ -67,14 +67,14 @@ class HAWC2Interface(object):
 
 
 class HAWC2_TCP(object):
-    def __init__(self, PORT=None, TCP_IP='127.0.0.1',connectAttempts=4):
+    def __init__(self, PORT=None, TCP_IP='127.0.0.1',connectAttempts=5):
         #Makes a TCP CLIENT
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         if PORT is not None:
             #Make TCP connection if a port number is provided.
             self.connect(PORT, TCP_IP, connectAttempts)
 
-    def connect(self, PORT, TCP_IP='127.0.0.1', connectAttempts=20, printStatus=True):
+    def connect(self, PORT, TCP_IP='127.0.0.1', connectAttempts=5, printStatus=True):
         #If no port number is provided in object initiation, this function can
         #be used to connect to a port.
         #Attempts to connect to HAWC2 connectAttempts many times before raising
@@ -107,27 +107,66 @@ class HAWC2_TCP(object):
 
         #!!! ConnectionResetError
         message = self.socket.recv(BUFFER_SIZE)
-        data = message.decode('utf-8')
-        if Nkeep is not None:
-            try:
-                data = np.array([float(x) for x in data.split(';')[1:Nkeep+1]])
-            except ValueError:
-                print('Something went wrong with reading data from HAWC2:')
-                for i, val in enumerate(data.split(';')[1:Nkeep+1]):
-                    print('input {}: {}'.format(i, val))
-                raise
-        else:
-            try:
-                data = np.array([float(x) for x in data.split(';')[1:]])
-            except ValueError:
-                print('Something went wrong with reading data from HAWC2:')
-                for i, val in enumerate(data.split(';')[1:]):
-                    print('input {}: {}'.format(i, val))
-                raise
 
+        #print(f"Raw received message: {message}")
+
+        # original
+        # data = message.decode('utf-8')
+        # if Nkeep is not None:
+        #     try:
+        #         data = np.array([float(x) for x in data.split(';')[1:Nkeep+1]])
+        #     except ValueError:
+        #         print('Something went wrong with reading data from HAWC2:')
+        #         for i, val in enumerate(data.split(';')[1:Nkeep+1]):
+        #             print('input {}: {}'.format(i, val))
+        #         raise
+        # else:
+        #     try:
+        #         data = np.array([float(x) for x in data.split(';')[1:]])
+        #     except ValueError:
+        #         print('Something went wrong with reading data from HAWC2:')
+        #         for i, val in enumerate(data.split(';')[1:]):
+        #             print('input {}: {}'.format(i, val))
+        #         raise
+
+        # if keys is not None:
+        #     assert len(keys) == Nkeep
+        #     data = dict(zip(keys,data))
+        
+
+        
+        dtype = np.float32
+        element_size = np.dtype(dtype).itemsize
+        message_length = len(message)
+
+        # Check if the message size is a multiple of the element size
+        # improve in the future, now running with only array1 = [t, azim]
+        if message_length % element_size != 0:
+            #print(f"Warning: Message size ({message_length}) is not a multiple of element size ({element_size}).")
+            # Trim the message to the nearest multiple of element size
+            message = message[:message_length - message_length % element_size]
+            #print(f"Trimmed message to size: {len(message)}")
+
+        try:
+            data = np.frombuffer(message, dtype=dtype)
+        except Exception as e:
+            print(f"Error converting raw message to numpy array: {e}")
+            raise
+
+        print(f"Decoded data: {data}")
+
+        # Limit to the first Nkeep elements if Nkeep is provided
+        if Nkeep is not None:
+            data = data[:Nkeep]
+
+        # If keys are provided, return a dictionary with keys mapped to the data
         if keys is not None:
-            assert len(keys) == Nkeep
-            data = dict(zip(keys,data))
+            assert len(keys) == len(data)
+            data = dict(zip(keys, data))
+
+        # Raw received message: b'\xff\x00\x00\x00\x00\x00\x00\x00\x01\x7f'
+        # Decoded data: [3.57e-43 0.00e+00]
+
 
         return data
 

@@ -14,7 +14,7 @@
  ***********************************************************************
 ________________________________________________________________________
   Log file output
-                                                       Time : 13:25:45
+                                                       Time : 14:54:33
                                                        Date : 11:02.2025
 ________________________________________________________________________
  Newmark commands read with succes
@@ -118,70 +118,41 @@ Mann commands read with succes
  Initialization of wind
  Initialization of external type2 DLL
  External DLL ./control/dtu_we_controller.dll is attempted to open
-DLL does not exist: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_Turbine/./control/dtu_we_controller_64.dll
-DLL does not exist: C:\Users\nicol\AppData\Roaming\HAWC2\./control/dtu_we_controller_64.dll
-DLL loading failed: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_Turbine/./control/dtu_we_controller.dll
-DLL does not exist: C:\Users\nicol\AppData\Roaming\HAWC2\./control/dtu_we_controller.dll
-DLL does not exist: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_Turbine/./control/dtu_we_controller_64.dll
-DLL does not exist: C:/Users/nicol/AppData/Roaming/HAWC2/./control/dtu_we_controller_64.dll
-DLL loading failed: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_Turbine/./control/dtu_we_controller.dll
-DLL does not exist: C:/Users/nicol/AppData/Roaming/HAWC2/./control/dtu_we_controller.dll
-*** WARNING *** DLL load failed with warning
- *** ERROR *** DLL ./control/dtu_we_controller.dll could not be loaded - error!
-*** WARNING *** Symbol not found in dll: init_regulation_advanced
- *** ERROR *** The DLL subroutine init_regulation_advanced
-  could not be found - not used
-*** WARNING *** Symbol not found in dll: update_regulation
- *** ERROR *** The DLL subroutineupdate_regulation could not be loaded - error!
+DLL loaded with success C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_modified/./control/dtu_we_controller_64.dll
+Using C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_modified/./control/dtu_we_controller_64.dll, version: 0.5-3-gec2a688
+ DLL subroutine init init_regulation_advanced is called
+ In initialization call of ./control/dtu_we_controller.dll Output is 
+  0.000000000000000E+000
 *** WARNING *** Symbol not found in dll: message
  *** INFO *** The DLL subroutine message could not be loaded - bypassed!
  Initialization of external type2 DLL
  External DLL ./control/generator_servo.dll is attempted to open
-DLL does not exist: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_Turbine/./control/generator_servo_64.dll
-DLL does not exist: C:\Users\nicol\AppData\Roaming\HAWC2\./control/generator_servo_64.dll
-DLL loading failed: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_Turbine/./control/generator_servo.dll
-DLL does not exist: C:\Users\nicol\AppData\Roaming\HAWC2\./control/generator_servo.dll
-DLL does not exist: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_Turbine/./control/generator_servo_64.dll
-DLL does not exist: C:/Users/nicol/AppData/Roaming/HAWC2/./control/generator_servo_64.dll
-DLL loading failed: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_Turbine/./control/generator_servo.dll
-DLL does not exist: C:/Users/nicol/AppData/Roaming/HAWC2/./control/generator_servo.dll
-*** WARNING *** DLL load failed with warning
- *** ERROR *** DLL ./control/generator_servo.dll could not be loaded - error!
-*** WARNING *** Symbol not found in dll: init_generator_servo
- *** ERROR *** The DLL subroutine init_generator_servo
-  could not be found - not used
-*** WARNING *** Symbol not found in dll: update_generator_servo
- *** ERROR *** The DLL subroutineupdate_generator_servo
-  could not be loaded - error!
+DLL loaded with success C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_modified/./control/generator_servo_64.dll
+Symbol not found in dll: get_version
+Using C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_modified/./control/generator_servo_64.dll, version: unknown
+ DLL subroutine init init_generator_servo is called
+ In initialization call of ./control/generator_servo.dll Output is 
+  0.000000000000000E+000
 *** WARNING *** Symbol not found in dll: message
  *** INFO *** The DLL subroutine message could not be loaded - bypassed!
  Initialization of external type2 DLL
  External DLL ./control/mech_brake.dll is attempted to open
-DLL does not exist: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_Turbine/./control/mech_brake_64.dll
-DLL does not exist: C:\Users\nicol\AppData\Roaming\HAWC2\./control/mech_brake_64.dll
-DLL loading failed: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_Turbine/./control/mech_brake.dll
-DLL does not exist: C:\Users\nicol\AppData\Roaming\HAWC2\./control/mech_brake.dll
-DLL does not exist: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_Turbine/./control/mech_brake_64.dll
-DLL does not exist: C:/Users/nicol/AppData/Roaming/HAWC2/./control/mech_brake_64.dll
-DLL loading failed: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_Turbine/./control/mech_brake.dll
-DLL does not exist: C:/Users/nicol/AppData/Roaming/HAWC2/./control/mech_brake.dll
-*** WARNING *** DLL load failed with warning
- *** ERROR *** DLL ./control/mech_brake.dll could not be loaded - error!
-*** WARNING *** Symbol not found in dll: init_mech_brake
- *** ERROR *** The DLL subroutine init_mech_brake could not be found - not used
-*** WARNING *** Symbol not found in dll: update_mech_brake
- *** ERROR *** The DLL subroutineupdate_mech_brake could not be loaded - error!
+DLL loaded with success C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_modified/./control/mech_brake_64.dll
+Using C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_modified/./control/mech_brake_64.dll, version: 0.2
+ DLL subroutine init init_mech_brake is called
+ In initialization call of ./control/mech_brake.dll Output is 
+  0.000000000000000E+000
 *** WARNING *** Symbol not found in dll: message
  *** INFO *** The DLL subroutine message could not be loaded - bypassed!
  Initialization of external DLLs
  External DLL ./control/TCPserver.dll is attempted to open
-DLL does not exist: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_Turbine/./control/TCPserver_64.dll
+DLL does not exist: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_modified/./control/TCPserver_64.dll
 DLL does not exist: C:\Users\nicol\AppData\Roaming\HAWC2\./control/TCPserver_64.dll
-DLL loading failed: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_Turbine/./control/TCPserver.dll
+DLL loading failed: C:\Users\nicol\git\Python-HAWC2-Interface\Example\DTU10MW_modified/./control/TCPserver.dll
 DLL does not exist: C:\Users\nicol\AppData\Roaming\HAWC2\./control/TCPserver.dll
-DLL does not exist: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_Turbine/./control/TCPserver_64.dll
+DLL does not exist: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_modified/./control/TCPserver_64.dll
 DLL does not exist: C:/Users/nicol/AppData/Roaming/HAWC2/./control/TCPserver_64.dll
-DLL loading failed: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_Turbine/./control/TCPserver.dll
+DLL loading failed: C:/Users/nicol/git/Python-HAWC2-Interface/Example/DTU10MW_modified/./control/TCPserver.dll
 DLL does not exist: C:/Users/nicol/AppData/Roaming/HAWC2/./control/TCPserver.dll
 *** ERROR *** DLL load failed with error
 *** ERROR *** DLL load failed with error
